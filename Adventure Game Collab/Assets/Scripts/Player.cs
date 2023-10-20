@@ -10,8 +10,8 @@ public class Player : LivingCreature
     public int Experience { get; set; }
     public int Level {  get; set; }
 
-    //public List<Inventory> Inventory { get; set; }
-    //public List<Quest> Quests { get; set; }
+    public List<Items> Inventory { get; set; }
+    public List<Quest> Quests { get; set; }
 
     public Player(int currHitPoints, int maxHitPoints, int money,
         int experience, int level) : base(currHitPoints,maxHitPoints)
@@ -20,8 +20,8 @@ public class Player : LivingCreature
         Experience = experience;
         Level = level;
 
-        //Inventory = new List<Inventory>();
-        //Quests = new List<Quest>();
+        Inventory = new List<Items>();
+        Quests = new List<Quest>();
     }
 
     // Start is called before the first frame update
