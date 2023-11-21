@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9488ed433d7cc6b46babf5fc8813ebd3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - buttonPressed: {fileID: 11400000, guid: 32a515142c39fb94296f8177b3546165, type: 2}
+  - CageOpen: {fileID: 11400000, guid: d454e41e44c377449913329270a4d284, type: 2}
+  - DoorOpen: {fileID: 11400000, guid: 697c410d7737baf45bc9189199a71cb7, type: 2}
+  - Map: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
