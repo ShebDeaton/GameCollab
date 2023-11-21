@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(0, -1);
     Vector2 move;
+    public int maxHealth = 5;
+    int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -45,5 +48,11 @@ public class PlayerController : MonoBehaviour
         position = position + move * speed * Time.deltaTime;
 
         transform.position = position;
+    }
+
+    void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
