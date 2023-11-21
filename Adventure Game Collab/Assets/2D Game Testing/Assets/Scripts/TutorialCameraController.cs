@@ -18,8 +18,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Player Position: X = " + player.transform.position.x + " --- Y = " + player.transform.position.y + " --- Z = " +
-        player.transform.position.z);
+        //Debug.Log("Player Position: X = " + player.transform.position.x + " --- Y = " + player.transform.position.y + " --- Z = " +
+        //player.transform.position.z);
         Vector3 playerPosition = player.transform.position;
         if (room == 4) // Main Room Navigation
         {
