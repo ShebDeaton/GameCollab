@@ -12,8 +12,14 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(0, -1);
     Vector2 move;
+
+
     public int maxHealth = 5;
     int currentHealth;
+    public float timeInvincible = 2.0f;
+    public int health { get { return currentHealth; } }
+    bool isInvincible;
+    float invincibleTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +46,15 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
+
+        if(isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if(invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -50,8 +65,16 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
     }
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
+        if(amount < 0)
+        {
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
