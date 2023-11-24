@@ -195,5 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1538807118016501485, guid: 814973d27be10984daf233ac4e5f917f, type: 3}
   dir: 1
-  maxHealth: 5
+  maxHealth: 2
   delay: 3
+  timeInvincible: 0.25

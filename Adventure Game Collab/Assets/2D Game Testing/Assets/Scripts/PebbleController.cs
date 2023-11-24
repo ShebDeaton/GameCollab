@@ -9,9 +9,13 @@ public class PebbleController : MonoBehaviour
     Rigidbody2D rb;
     public int dir;
     private Vector2 Direction;
-    public int maxHealth = 5;
+    public int maxHealth = 3;
     int currentHealth;
     public float delay = 3.0f;
+    bool isInvincible;
+    float invincibleTimer;
+    public float timeInvincible = 0.25f;
+    public int health { get { return currentHealth; } }
 
     void Start()
     {
@@ -36,6 +40,23 @@ public class PebbleController : MonoBehaviour
         }
     }
 
+     void Update()
+    {
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
+
+        if (currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator ShootProjectile()
     {
         while (true)
@@ -50,5 +71,19 @@ public class PebbleController : MonoBehaviour
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(Direction, 150.0f);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
