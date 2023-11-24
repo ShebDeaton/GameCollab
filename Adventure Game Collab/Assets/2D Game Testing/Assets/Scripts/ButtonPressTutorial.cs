@@ -113,13 +113,21 @@ public class ButtonPress : MonoBehaviour
         //Red Key Aquire
         if (Vector3.Distance(Map.WorldToCell(transform.position), Map.WorldToCell(RedKey)) <= 1)
         {
-            //Need Code to Check for Money
-            Vector3Int KeyLocation = Map.WorldToCell(RedKey);
-            KeyLocation.z += 1;
-            Map.SetTile(KeyLocation, null); // Take Key
-            if (!RedKeyAquired)
+            PlayerController controller = gameObject.GetComponent<PlayerController>();
+            if (controller.bal >= 3) //Check for Balance
             {
-                RedKeyAquired = true;
+                //Space to Confirm Purchase
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Vector3Int KeyLocation = Map.WorldToCell(RedKey);
+                    KeyLocation.z += 1;
+                    Map.SetTile(KeyLocation, null); // Take Key
+                    if (!RedKeyAquired)
+                    {
+                        RedKeyAquired = true;
+                    }
+                    controller.ChangeBalance(-3);
+                }
             }
         }
     }

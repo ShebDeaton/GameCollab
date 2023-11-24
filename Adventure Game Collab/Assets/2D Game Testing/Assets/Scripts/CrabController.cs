@@ -6,6 +6,7 @@ using UnityEngine;
 public class CrabController : MonoBehaviour
 {
     public float speed = 3.0f;
+    public GameObject Money;
     public bool horizontal;
     public float pathTime = 3.0f;
     float timer;
@@ -52,6 +53,7 @@ public class CrabController : MonoBehaviour
         if (currentHealth == 0)
         {
             Destroy(gameObject);
+            Instantiate(Money, rb.position, Quaternion.identity);
         }
     }
 

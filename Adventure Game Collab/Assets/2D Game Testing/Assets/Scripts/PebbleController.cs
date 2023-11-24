@@ -6,6 +6,7 @@ using UnityEngine;
 public class PebbleController : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public GameObject Money;
     Rigidbody2D rb;
     public int dir;
     private Vector2 Direction;
@@ -54,6 +55,7 @@ public class PebbleController : MonoBehaviour
         if (currentHealth == 0)
         {
             Destroy(gameObject);
+            Instantiate(Money, rb.position, Quaternion.identity);
         }
     }
 

@@ -24,12 +24,16 @@ public class PlayerController : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
 
+    public int bal { get { return currentBalance; } }
+    int currentBalance;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        currentBalance = 0;
     }
 
     // Update is called once per frame
@@ -107,5 +111,11 @@ public class PlayerController : MonoBehaviour
         swordPrefab.gameObject.SetActive(false);
         isAttacking = false;
 
+    }
+
+    public void ChangeBalance(int amount)
+    {
+        currentBalance = currentBalance + amount;
+        Debug.Log("Current Balance: " + currentBalance);
     }
 }
