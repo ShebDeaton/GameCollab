@@ -33,5 +33,6 @@ public class Projectile : MonoBehaviour
             PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             controller.ChangeHealth(-1);
         }
+
     }
 }

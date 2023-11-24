@@ -12,10 +12,15 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     Vector2 lookDirection = new Vector2(0, -1);
+    public Vector2 lookdir { get { return lookDirection; } }
     Vector2 move;
     public GameObject swordPrefab;
     private bool isAttacking = false;
 
+    public bool reflectUpgrade = false;
+    public bool speedUpgrade = false;
+    public bool reflect { get { return reflectUpgrade; } }
+    public bool speedGrade {  get {  return speedUpgrade; } }
 
     public int maxHealth = 5;
     int currentHealth;
