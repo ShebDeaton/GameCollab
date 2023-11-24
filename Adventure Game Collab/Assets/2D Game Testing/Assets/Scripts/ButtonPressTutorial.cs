@@ -10,6 +10,7 @@ public class ButtonPress : MonoBehaviour
     public Tile CageOpen;
     public Tile DoorOpen;
     public Tilemap Map;
+    private GameObject[] enemies;
 
     private Vector3 Button1;
     private Boolean Button1Pressed = false;
@@ -40,13 +41,13 @@ public class ButtonPress : MonoBehaviour
             Vector3Int RedDoorLocation = Map.WorldToCell(new Vector3(-7,-11,0));
             Map.SetTile(RedDoorLocation,DoorOpen);
         }
-
-        /*if (--Enemy count == 0 ) //Enemy Door Left Room
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if ( enemies.Length == 0 ) //Enemy Door Left Room
          {
              Vector3Int DoorLocation = (Map.WorldToCell(Button1));
              DoorLocation.y -= 2;
-             Map.SetTile(DoorLocation, DoorOpen); // Open the Door
-         }*/
+             Map.SetTile(DoorLocation, CageOpen); // Open the Door
+         }
 
        //Open Boss Room
        if (ButtonsPressed == 3)

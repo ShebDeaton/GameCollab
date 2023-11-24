@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - titleScreen
+  - DifficultyButton
+  - DifficultySelectScene
+  - StartGameScene
+  - OtherSelectScene
+  - QuitButton
+  - OtherButton
+  - StartButton
+  - Undefined
+  - Enemy
   layers:
   - Default
   - TransparentFX
