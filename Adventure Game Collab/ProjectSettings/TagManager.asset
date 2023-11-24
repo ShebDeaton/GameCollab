@@ -16,6 +16,10 @@ TagManager:
   - Enemy
   - ProjectileEnemy
   - Sword
+  - BackButton
+  - BackButton1
+  - BackButton2
+  - BackButton3
   layers:
   - Default
   - TransparentFX
