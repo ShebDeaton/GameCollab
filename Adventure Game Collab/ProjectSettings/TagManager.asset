@@ -20,6 +20,7 @@ TagManager:
   - BackButton1
   - BackButton2
   - BackButton3
+  - Boss
   layers:
   - Default
   - TransparentFX

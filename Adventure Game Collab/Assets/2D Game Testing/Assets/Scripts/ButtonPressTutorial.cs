@@ -11,7 +11,7 @@ public class ButtonPress : MonoBehaviour
     public Tile DoorOpen;
     public Tilemap Map;
     private GameObject[] enemies;
-    private GameObject[] reqReading;
+    private GameObject[] Bosses;
 
     private Vector3 Button1;
     private Boolean Button1Pressed = false;
@@ -71,6 +71,29 @@ public class ButtonPress : MonoBehaviour
             Map.SetTile(BossDoorLocation4, null); // Open the Boss Door
             Map.SetTile(BossDoorLocation5, null); // Open the Boss Door
             Map.SetTile(BossDoorLocation6, null); // Open the Boss Door
+        }
+        Bosses = GameObject.FindGameObjectsWithTag("Boss");
+        //Opens Exit Room
+        if (Bosses.Length == 0) //kill the Boss
+        {
+            Vector3Int ExitDoorLocation1 = Map.WorldToCell(new Vector3(-1, 14, 0));
+            ExitDoorLocation1.z += 1;
+            Vector3Int ExitDoorLocation2 = Map.WorldToCell(new Vector3(0, 14, 0));
+            ExitDoorLocation2.z += 1;
+            Vector3Int ExitDoorLocation3 = Map.WorldToCell(new Vector3(-2, 14, 0));
+            ExitDoorLocation3.z += 1;
+            Vector3Int ExitDoorLocation4 = Map.WorldToCell(new Vector3(-3, 14, 0));
+            ExitDoorLocation4.z += 1;
+            Vector3Int ExitDoorLocation5 = Map.WorldToCell(new Vector3(1, 14, 0));
+            ExitDoorLocation5.z += 1;
+            Vector3Int ExitDoorLocation6 = Map.WorldToCell(new Vector3(2, 14, 0));
+            ExitDoorLocation6.z += 1;
+            Map.SetTile(ExitDoorLocation1, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation2, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation3, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation4, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation5, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation6, null); // Open the Boss Door
         }
     }
 
