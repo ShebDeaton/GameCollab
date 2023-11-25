@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     public GameObject swordPrefab;
     private bool isAttacking = false;
+    private bool talking = false;
+    public bool getTalk { get { return talking; } }
 
     public bool reflectUpgrade = false;
     public bool speedUpgrade = false;
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking) { 
+        if (!isAttacking && !talking) { 
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
 
@@ -73,11 +75,15 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Swing());
             }
         }
+        if (talking)
+        {
+            animator.SetFloat("Speed", 0);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (!isAttacking)
+        if (!isAttacking && !talking)
         {
             position = transform.position;
             position = position + move * speed * Time.deltaTime;
@@ -106,6 +112,11 @@ public class PlayerController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    public void isTalking(bool talk)
+    {
+        talking = talk;
     }
 
     IEnumerator Swing()

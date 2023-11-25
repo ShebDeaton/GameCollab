@@ -11,6 +11,7 @@ public class ButtonPress : MonoBehaviour
     public Tile DoorOpen;
     public Tilemap Map;
     private GameObject[] enemies;
+    private GameObject[] reqReading;
 
     private Vector3 Button1;
     private Boolean Button1Pressed = false;
@@ -42,7 +43,7 @@ public class ButtonPress : MonoBehaviour
             Map.SetTile(RedDoorLocation,DoorOpen);
         }
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if ( enemies.Length == 0 ) //Enemy Door Left Room
+        if ( enemies.Length == 0) //Enemy Door Left Room
          {
              Vector3Int DoorLocation = (Map.WorldToCell(Button1));
              DoorLocation.y -= 2;
@@ -117,7 +118,7 @@ public class ButtonPress : MonoBehaviour
             if (controller.bal >= 3) //Check for Balance
             {
                 //Space to Confirm Purchase
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Q))
                 {
                     Vector3Int KeyLocation = Map.WorldToCell(RedKey);
                     KeyLocation.z += 1;
