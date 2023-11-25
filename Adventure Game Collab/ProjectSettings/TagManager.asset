@@ -21,6 +21,7 @@ TagManager:
   - BackButton2
   - BackButton3
   - Boss
+  - GModeButton
   layers:
   - Default
   - TransparentFX

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9103505360955666199, guid: 1237f579e0f6c154e8fb79d5d05d519d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1538807118016501485, guid: 814973d27be10984daf233ac4e5f917f, type: 3}
+  Money: {fileID: 2502836977101134198, guid: 09632a50699de284c9c4b3af245f295d, type: 3}
   dir: 1
   maxHealth: 2
   delay: 3
