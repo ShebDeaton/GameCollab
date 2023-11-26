@@ -68,7 +68,7 @@ public class CameraControllerTown : MonoBehaviour
                 room = 6;
             }
         }
-        else if (room == 4) // Bottom Room Navigation / Shop Room
+        else if (room == 4) // Cave Room
         {
             if (playerPosition.y < 14.5) // Enter Main Room
             {
