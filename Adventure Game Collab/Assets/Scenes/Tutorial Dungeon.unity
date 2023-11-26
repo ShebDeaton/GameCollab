@@ -161,6 +161,8 @@ MonoBehaviour:
   - You must save this world from darkness... but first..
   - Pass these trials to prove your worth.
   - (WASD to move)
+  - Press 'Escape' to return to the menu!
+  - Press 'G' to toggle GodMode
   singleTime: 1
 --- !u!50 &4125357
 Rigidbody2D:
@@ -471,6 +473,8 @@ GameObject:
   - component: {fileID: 145684975}
   - component: {fileID: 145684974}
   - component: {fileID: 145684973}
+  - component: {fileID: 145684976}
+  - component: {fileID: 145684977}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -521,7 +525,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.882259
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -552,6 +556,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &145684976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145684972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601781fc717513e47af162873129a7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: 0
+--- !u!114 &145684977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145684972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802de362ba3d2fd4f976252a580ffca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &253022697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1965,10 +1994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1985,8 +2014,8 @@ Canvas:
   m_GameObject: {fileID: 1994458067}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 145684974}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
