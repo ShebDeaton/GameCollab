@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CrabController : MonoBehaviour
@@ -54,6 +53,8 @@ public class CrabController : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(Money, rb.position, Quaternion.identity);
+            if (MainManager.Instance != null)
+                MainManager.Instance.EnemiesKilled++;
         }
     }
 

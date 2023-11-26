@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3.0f;
+    public GameObject endScreen;
     public Vector2 position;
     public Vector2 SwordPosition;
     public float horizontalInput;
@@ -24,10 +27,10 @@ public class PlayerController : MonoBehaviour
     public bool reflectUpgrade = false;
     public bool speedUpgrade = false;
     public bool reflect { get { return reflectUpgrade; } }
-    public bool speedGrade {  get {  return speedUpgrade; } }
+    public bool speedGrade { get { return speedUpgrade; } }
 
     public int maxHealth = 5;
-    int currentHealth;
+    public int currentHealth;
     public float timeInvincible = 2.0f;
     public int health { get { return currentHealth; } }
     bool isInvincible;
@@ -36,19 +39,40 @@ public class PlayerController : MonoBehaviour
     public int bal { get { return currentBalance; } }
     int currentBalance;
 
+    SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Getting some Components
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
-        currentBalance = 0;
+        sprite = GetComponent<SpriteRenderer>();
+        //If we're playing the full game, get some data.
+        if (MainManager.Instance != null)
+        {
+            //Calculate the MaxHp, based on Difficulty + Level.
+            maxHealth = 10 + (MainManager.Instance.level * MainManager.Instance.difficulty);
+            //Track the Current Health
+            currentHealth = MainManager.Instance.currentHealth;
+            //Track the Current Balance.
+            currentBalance = MainManager.Instance.money;
+            //Display the money.
+            PlayerHealthBar.instance.SetBalance(currentBalance);
+            //Track if the player is in God Mode.
+            godMode = MainManager.Instance.godMode;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+            currentBalance = 0;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && !talking) { 
+        if (!isAttacking && !talking) {
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
 
@@ -83,11 +107,49 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //Return all Defaults
+            if (MainManager.Instance != null)
+                MainManager.Instance.ResetDefaults();
+
             SceneManager.LoadScene("UI Scene");
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             godMode = !godMode;
+            if (MainManager.Instance != null)
+                MainManager.Instance.godMode = godMode;
+        }
+
+        if (godMode)
+        {
+            sprite.color = Color.red;
+        }
+        else
+        {
+            sprite.color = Color.white;
+        }
+
+        if (currentHealth == 0)
+        {
+            talking = true;
+            endScreen.gameObject.SetActive(true);
+        }
+        else
+        {
+            endScreen.gameObject.SetActive(false);
+        }
+
+        if (MainManager.Instance != null)
+        {
+            if (MainManager.Instance.CaveComplete)
+            {
+                reflectUpgrade = true;
+            }
+
+            if (MainManager.Instance.ForestComplete)
+            {
+                speedUpgrade = true;
+            }
         }
     }
 
@@ -121,9 +183,14 @@ public class PlayerController : MonoBehaviour
 
                 isInvincible = true;
                 invincibleTimer = timeInvincible;
+                if (MainManager.Instance != null)
+                    MainManager.Instance.DamageTaken -= amount;
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+            if (MainManager.Instance != null)
+                MainManager.Instance.currentHealth = currentHealth;
+
         }
     }
 
@@ -146,5 +213,7 @@ public class PlayerController : MonoBehaviour
     {
         currentBalance = currentBalance + amount;
         PlayerHealthBar.instance.SetBalance(currentBalance);
+        if(MainManager.Instance != null)
+            MainManager.Instance.money = currentBalance;
     }
 }
