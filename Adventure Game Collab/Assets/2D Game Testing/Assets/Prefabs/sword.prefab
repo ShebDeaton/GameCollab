@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7277153302080023396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06600499, y: -0.7798837, z: 0}
+  m_LocalPosition: {x: -0.032368373, y: -0.4564163, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e047d628b81b1749b8d695fd25fe16d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
 --- !u!61 &7899692935144717636
 BoxCollider2D:
   m_ObjectHideFlags: 0
