@@ -26,4 +26,9 @@ public class NextScene : MonoBehaviour
             SceneManager.LoadScene(SceneName);
         }
     }
+
+    public void loadTutorialDungeon()
+    {
+        SceneManager.LoadScene("Tutorial Dungeon");
+    }
 }

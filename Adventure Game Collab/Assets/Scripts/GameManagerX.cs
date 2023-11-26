@@ -19,7 +19,11 @@ public class GameManagerX : MonoBehaviour
     public Button BackButton2;
     public Button BackButton3;
     public Toggle GModeButton;
-    
+
+    public Button EasyButton;
+    public Button MediumButton;
+    public Button HardButton;
+
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
     void Start()
     {
