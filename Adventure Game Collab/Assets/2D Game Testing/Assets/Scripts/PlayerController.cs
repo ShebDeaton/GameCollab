@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
                 invincibleTimer = timeInvincible;
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            Debug.Log(currentHealth + "/" + maxHealth);
+            PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
         }
     }
 
@@ -145,6 +145,6 @@ public class PlayerController : MonoBehaviour
     public void ChangeBalance(int amount)
     {
         currentBalance = currentBalance + amount;
-        Debug.Log("Current Balance: " + currentBalance);
+        PlayerHealthBar.instance.SetBalance(currentBalance);
     }
 }
