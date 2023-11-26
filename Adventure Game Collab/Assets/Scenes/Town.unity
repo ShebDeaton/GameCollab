@@ -555,6 +555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5834697066891183646, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 2367083144680251323, guid: e5d7e6bea2e144d45aebaa2fab51ffce, type: 3}
     - target: {fileID: 7277153302080023396, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
       propertyPath: m_Name
       value: sword

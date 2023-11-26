@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool reflectUpgrade = false;
     public bool speedUpgrade = false;
     public bool reflect { get { return reflectUpgrade; } }
-    public bool speedGrade {  get {  return speedUpgrade; } }
+    public bool speedGrade { get { return speedUpgrade; } }
 
     public int maxHealth = 5;
     public int currentHealth;
@@ -66,13 +66,13 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = maxHealth;
             currentBalance = 0;
-        }  
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && !talking) { 
+        if (!isAttacking && !talking) {
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
 
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
         if (godMode)
         {
-            sprite.color = Color.red; 
+            sprite.color = Color.red;
         }
         else
         {
@@ -137,6 +137,19 @@ public class PlayerController : MonoBehaviour
         else
         {
             endScreen.gameObject.SetActive(false);
+        }
+
+        if (MainManager.Instance != null)
+        {
+            if (MainManager.Instance.CaveComplete)
+            {
+                reflectUpgrade = true;
+            }
+
+            if (MainManager.Instance.ForestComplete)
+            {
+                speedUpgrade = true;
+            }
         }
     }
 
