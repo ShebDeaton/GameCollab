@@ -41,7 +41,7 @@ public class SwordSwing : MonoBehaviour
             
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Boss"))
         {
 
             PebbleController controller = collision.gameObject.GetComponent<PebbleController>();
@@ -53,6 +53,11 @@ public class SwordSwing : MonoBehaviour
             if (controller2 != null)
             {
                 controller2.ChangeHealth(-1);
+            }
+            TutorialBossController controller3 = collision.gameObject.GetComponent<TutorialBossController>();
+            if (controller3 != null)
+            {
+                controller3.ChangeHealth(-1);
             }
         }
     }

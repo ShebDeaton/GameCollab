@@ -9,7 +9,9 @@ public class ButtonPress : MonoBehaviour
     public Tile buttonPressed;
     public Tile CageOpen;
     public Tile DoorOpen;
+    public Tile BossTile;
     public Tilemap Map;
+    private bool isRotated = false;
     private GameObject[] enemies;
     private GameObject[] Bosses;
 
@@ -88,12 +90,82 @@ public class ButtonPress : MonoBehaviour
             ExitDoorLocation5.z += 1;
             Vector3Int ExitDoorLocation6 = Map.WorldToCell(new Vector3(2, 14, 0));
             ExitDoorLocation6.z += 1;
-            Map.SetTile(ExitDoorLocation1, null); // Open the Boss Door
-            Map.SetTile(ExitDoorLocation2, null); // Open the Boss Door
-            Map.SetTile(ExitDoorLocation3, null); // Open the Boss Door
-            Map.SetTile(ExitDoorLocation4, null); // Open the Boss Door
-            Map.SetTile(ExitDoorLocation5, null); // Open the Boss Door
-            Map.SetTile(ExitDoorLocation6, null); // Open the Boss Door
+            Map.SetTile(ExitDoorLocation1, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation2, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation3, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation4, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation5, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation6, null); // Open the Exit Door
+            Vector3Int BossDoorLocation1 = Map.WorldToCell(new Vector3(-1, 5, 0));
+            BossDoorLocation1.z += 1;
+            Vector3Int BossDoorLocation2 = Map.WorldToCell(new Vector3(0, 5, 0));
+            BossDoorLocation2.z += 1;
+            Vector3Int BossDoorLocation3 = Map.WorldToCell(new Vector3(-2, 5, 0));
+            BossDoorLocation3.z += 1;
+            Vector3Int BossDoorLocation4 = Map.WorldToCell(new Vector3(-3, 5, 0));
+            BossDoorLocation4.z += 1;
+            Vector3Int BossDoorLocation5 = Map.WorldToCell(new Vector3(1, 5, 0));
+            BossDoorLocation5.z += 1;
+            Vector3Int BossDoorLocation6 = Map.WorldToCell(new Vector3(2, 5, 0));
+            BossDoorLocation6.z += 1;
+            Map.SetTile(BossDoorLocation1, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation2, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation3, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation4, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation5, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation6, null); // Open the Boss Door
+            isRotated = false;
+        }
+        if (Bosses.Length == 1) // Boss is Alive.
+        {
+            Vector3Int BossDoorLocation1 = Map.WorldToCell(new Vector3(-1, 5, 0));
+            BossDoorLocation1.z += 1;
+            Vector3Int BossDoorLocation2 = Map.WorldToCell(new Vector3(0, 5, 0));
+            BossDoorLocation2.z += 1;
+            Vector3Int BossDoorLocation3 = Map.WorldToCell(new Vector3(-2, 5, 0));
+            BossDoorLocation3.z += 1;
+            Vector3Int BossDoorLocation4 = Map.WorldToCell(new Vector3(-3, 5, 0));
+            BossDoorLocation4.z += 1;
+            Vector3Int BossDoorLocation5 = Map.WorldToCell(new Vector3(1, 5, 0));
+            BossDoorLocation5.z += 1;
+            Vector3Int BossDoorLocation6 = Map.WorldToCell(new Vector3(2, 5, 0));
+            BossDoorLocation6.z += 1;
+            Map.SetTile(BossDoorLocation1, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation2, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation3, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation4, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation5, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation6, BossTile); // Close the Boss Door
+            if (!isRotated)
+            {
+                //Rotate the exit
+                isRotated = true;
+                Quaternion rotation = Quaternion.Euler(0, 0, 180f);
+                Map.SetTransformMatrix(BossDoorLocation1, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation2, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation3, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation4, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation5, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation6, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+            }
+            Vector3Int ExitDoorLocation1 = Map.WorldToCell(new Vector3(-1, 14, 0));
+            ExitDoorLocation1.z += 1;
+            Vector3Int ExitDoorLocation2 = Map.WorldToCell(new Vector3(0, 14, 0));
+            ExitDoorLocation2.z += 1;
+            Vector3Int ExitDoorLocation3 = Map.WorldToCell(new Vector3(-2, 14, 0));
+            ExitDoorLocation3.z += 1;
+            Vector3Int ExitDoorLocation4 = Map.WorldToCell(new Vector3(-3, 14, 0));
+            ExitDoorLocation4.z += 1;
+            Vector3Int ExitDoorLocation5 = Map.WorldToCell(new Vector3(1, 14, 0));
+            ExitDoorLocation5.z += 1;
+            Vector3Int ExitDoorLocation6 = Map.WorldToCell(new Vector3(2, 14, 0));
+            ExitDoorLocation6.z += 1;
+            Map.SetTile(ExitDoorLocation1, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation2, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation3, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation4, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation5, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation6, BossTile); // Close the Exit Door
         }
     }
 

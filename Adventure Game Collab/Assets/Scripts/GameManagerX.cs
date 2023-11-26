@@ -32,9 +32,12 @@ public class GameManagerX : MonoBehaviour
 
         OtherButton.onClick.AddListener(OtherGameScreen);
 
-        QuitButton.onClick.AddListener(Application.Quit);
+        QuitButton.onClick.AddListener(QuitGame);
     }
-
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     public void BackButtonStart()
     {
         StartGameScene.SetActive(false);

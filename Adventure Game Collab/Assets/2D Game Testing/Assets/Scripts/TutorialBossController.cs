@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,15 @@ using UnityEngine;
 public class TutorialBossController : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public GameObject Money;
     Rigidbody2D rb;
+    float timer;
+    public float pathTime = 3.0f;
+    public bool horizontal;
+    int pathDirection = -1;
+    public float speed = 3.0f;
     public int dir;
     private Vector2 Direction;
-    public int maxHealth = 3;
+    public int maxHealth = 9;
     int currentHealth;
     public float delay = 1.5f;
     bool isInvincible;
@@ -26,9 +31,19 @@ public class TutorialBossController : MonoBehaviour
 
     void Update()
     {
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
+        {
+            pathDirection = -pathDirection;
+            transform.Rotate(Vector3.up, 180);
+            timer = pathTime;
+        }
+
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
+            timer += Time.deltaTime;
             if (invincibleTimer < 0)
             {
                 isInvincible = false;
@@ -37,9 +52,26 @@ public class TutorialBossController : MonoBehaviour
 
         if (currentHealth == 0)
         {
-            Destroy(gameObject);
-            Instantiate(Money, rb.position, Quaternion.identity);
+            gameObject.SetActive(false);
         }
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 position = rb.position;
+        if (!isInvincible)
+        {
+            if (horizontal)
+            {
+                position.x = position.x + Time.deltaTime * speed * pathDirection;
+            }
+            else
+            {
+                position.y = position.y + Time.deltaTime * speed * pathDirection;
+            }
+        }
+
+        rb.MovePosition(position);
     }
 
     IEnumerator ShootProjectile()
@@ -52,7 +84,7 @@ public class TutorialBossController : MonoBehaviour
     }
     void Launch(Vector2 Direction)
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.down * 0.5f, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.down * 1f, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(Vector2.down, 300.0f);
@@ -70,5 +102,15 @@ public class TutorialBossController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
+        if (player != null)
+        {
+            player.ChangeHealth(-1);
+        }
     }
 }
