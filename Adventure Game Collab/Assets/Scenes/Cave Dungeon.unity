@@ -1137,7 +1137,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1
-  - first: {x: 8, y: -4, z: 1}
+  - first: {x: 8, y: -4, z: 3}
     second:
       serializedVersion: 2
       m_TileIndex: 8
@@ -1147,7 +1147,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1
-  - first: {x: 9, y: -4, z: 1}
+  - first: {x: 9, y: -4, z: 3}
     second:
       serializedVersion: 2
       m_TileIndex: 8
@@ -9048,7 +9048,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -27, y: -8, z: 0}
-  m_Size: {x: 54, y: 29, z: 2}
+  m_Size: {x: 54, y: 29, z: 4}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
