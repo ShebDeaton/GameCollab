@@ -15,9 +15,34 @@ public class GameManagerX : MonoBehaviour
     public GameObject StartGameScene;
     public GameObject DifficultySelectScene;
     public GameObject OtherSelectScene;
-    
+    public Button BackButton1;
+    public Button BackButton2;
+    public Button BackButton3;
+    public Toggle GModeButton;
+
+    public Button EasyButton;
+    public Button MediumButton;
+    public Button HardButton;
+
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
     void Start()
+    {
+        StartGameScene.SetActive(false);
+        DifficultySelectScene.SetActive(false);
+        OtherSelectScene.SetActive(false);
+        titleScreen.SetActive(true);
+
+        StartButton.onClick.AddListener(StartGameScreen);
+
+        OtherButton.onClick.AddListener(OtherGameScreen);
+
+        QuitButton.onClick.AddListener(QuitGame);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void BackButtonStart()
     {
         StartGameScene.SetActive(false);
         DifficultySelectScene.SetActive(false);
@@ -34,14 +59,18 @@ public class GameManagerX : MonoBehaviour
     public void StartGameScreen()
     { 
         titleScreen.SetActive(false);
+        DifficultySelectScene.SetActive(false);
         StartGameScene.SetActive(true);
         DifficultyButton.onClick.AddListener(DifficultySelectScreen);
+        ///need to set what happens when this is clicked
+        ///GModeButton.onValueChanged();
     }
 
     public void OtherGameScreen()
     {
         titleScreen.SetActive(false);
         OtherSelectScene.SetActive(true);
+
     }
 
     public void DifficultySelectScreen()

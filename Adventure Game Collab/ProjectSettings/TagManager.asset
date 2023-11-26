@@ -3,7 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - titleScreen
+  - DifficultyButton
+  - DifficultySelectScene
+  - StartGameScene
+  - OtherSelectScene
+  - QuitButton
+  - OtherButton
+  - StartButton
+  - Undefined
+  - Enemy
+  - ProjectileEnemy
+  - Sword
+  - BackButton
+  - BackButton1
+  - BackButton2
+  - BackButton3
+  - Boss
+  - GModeButton
   layers:
   - Default
   - TransparentFX
@@ -11,7 +29,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Confiner
   - 
   - 
   - 

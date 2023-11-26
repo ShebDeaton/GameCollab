@@ -9,7 +9,11 @@ public class ButtonPress : MonoBehaviour
     public Tile buttonPressed;
     public Tile CageOpen;
     public Tile DoorOpen;
+    public Tile BossTile;
     public Tilemap Map;
+    private bool isRotated = false;
+    private GameObject[] enemies;
+    private GameObject[] Bosses;
 
     private Vector3 Button1;
     private Boolean Button1Pressed = false;
@@ -40,13 +44,13 @@ public class ButtonPress : MonoBehaviour
             Vector3Int RedDoorLocation = Map.WorldToCell(new Vector3(-7,-11,0));
             Map.SetTile(RedDoorLocation,DoorOpen);
         }
-
-        /*if (--Enemy count == 0 ) //Enemy Door Left Room
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if ( enemies.Length == 0) //Enemy Door Left Room
          {
              Vector3Int DoorLocation = (Map.WorldToCell(Button1));
              DoorLocation.y -= 2;
-             Map.SetTile(DoorLocation, DoorOpen); // Open the Door
-         }*/
+             Map.SetTile(DoorLocation, CageOpen); // Open the Door
+         }
 
        //Open Boss Room
        if (ButtonsPressed == 3)
@@ -69,6 +73,99 @@ public class ButtonPress : MonoBehaviour
             Map.SetTile(BossDoorLocation4, null); // Open the Boss Door
             Map.SetTile(BossDoorLocation5, null); // Open the Boss Door
             Map.SetTile(BossDoorLocation6, null); // Open the Boss Door
+        }
+        Bosses = GameObject.FindGameObjectsWithTag("Boss");
+        //Opens Exit Room
+        if (Bosses.Length == 0) //kill the Boss
+        {
+            Vector3Int ExitDoorLocation1 = Map.WorldToCell(new Vector3(-1, 14, 0));
+            ExitDoorLocation1.z += 1;
+            Vector3Int ExitDoorLocation2 = Map.WorldToCell(new Vector3(0, 14, 0));
+            ExitDoorLocation2.z += 1;
+            Vector3Int ExitDoorLocation3 = Map.WorldToCell(new Vector3(-2, 14, 0));
+            ExitDoorLocation3.z += 1;
+            Vector3Int ExitDoorLocation4 = Map.WorldToCell(new Vector3(-3, 14, 0));
+            ExitDoorLocation4.z += 1;
+            Vector3Int ExitDoorLocation5 = Map.WorldToCell(new Vector3(1, 14, 0));
+            ExitDoorLocation5.z += 1;
+            Vector3Int ExitDoorLocation6 = Map.WorldToCell(new Vector3(2, 14, 0));
+            ExitDoorLocation6.z += 1;
+            Map.SetTile(ExitDoorLocation1, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation2, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation3, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation4, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation5, null); // Open the Exit Door
+            Map.SetTile(ExitDoorLocation6, null); // Open the Exit Door
+            Vector3Int BossDoorLocation1 = Map.WorldToCell(new Vector3(-1, 5, 0));
+            BossDoorLocation1.z += 1;
+            Vector3Int BossDoorLocation2 = Map.WorldToCell(new Vector3(0, 5, 0));
+            BossDoorLocation2.z += 1;
+            Vector3Int BossDoorLocation3 = Map.WorldToCell(new Vector3(-2, 5, 0));
+            BossDoorLocation3.z += 1;
+            Vector3Int BossDoorLocation4 = Map.WorldToCell(new Vector3(-3, 5, 0));
+            BossDoorLocation4.z += 1;
+            Vector3Int BossDoorLocation5 = Map.WorldToCell(new Vector3(1, 5, 0));
+            BossDoorLocation5.z += 1;
+            Vector3Int BossDoorLocation6 = Map.WorldToCell(new Vector3(2, 5, 0));
+            BossDoorLocation6.z += 1;
+            Map.SetTile(BossDoorLocation1, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation2, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation3, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation4, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation5, null); // Open the Boss Door
+            Map.SetTile(BossDoorLocation6, null); // Open the Boss Door
+            isRotated = false;
+        }
+        if (Bosses.Length == 1) // Boss is Alive.
+        {
+            Vector3Int BossDoorLocation1 = Map.WorldToCell(new Vector3(-1, 5, 0));
+            BossDoorLocation1.z += 1;
+            Vector3Int BossDoorLocation2 = Map.WorldToCell(new Vector3(0, 5, 0));
+            BossDoorLocation2.z += 1;
+            Vector3Int BossDoorLocation3 = Map.WorldToCell(new Vector3(-2, 5, 0));
+            BossDoorLocation3.z += 1;
+            Vector3Int BossDoorLocation4 = Map.WorldToCell(new Vector3(-3, 5, 0));
+            BossDoorLocation4.z += 1;
+            Vector3Int BossDoorLocation5 = Map.WorldToCell(new Vector3(1, 5, 0));
+            BossDoorLocation5.z += 1;
+            Vector3Int BossDoorLocation6 = Map.WorldToCell(new Vector3(2, 5, 0));
+            BossDoorLocation6.z += 1;
+            Map.SetTile(BossDoorLocation1, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation2, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation3, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation4, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation5, BossTile); // Close the Boss Door
+            Map.SetTile(BossDoorLocation6, BossTile); // Close the Boss Door
+            if (!isRotated)
+            {
+                //Rotate the exit
+                isRotated = true;
+                Quaternion rotation = Quaternion.Euler(0, 0, 180f);
+                Map.SetTransformMatrix(BossDoorLocation1, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation2, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation3, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation4, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation5, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+                Map.SetTransformMatrix(BossDoorLocation6, Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one));
+            }
+            Vector3Int ExitDoorLocation1 = Map.WorldToCell(new Vector3(-1, 14, 0));
+            ExitDoorLocation1.z += 1;
+            Vector3Int ExitDoorLocation2 = Map.WorldToCell(new Vector3(0, 14, 0));
+            ExitDoorLocation2.z += 1;
+            Vector3Int ExitDoorLocation3 = Map.WorldToCell(new Vector3(-2, 14, 0));
+            ExitDoorLocation3.z += 1;
+            Vector3Int ExitDoorLocation4 = Map.WorldToCell(new Vector3(-3, 14, 0));
+            ExitDoorLocation4.z += 1;
+            Vector3Int ExitDoorLocation5 = Map.WorldToCell(new Vector3(1, 14, 0));
+            ExitDoorLocation5.z += 1;
+            Vector3Int ExitDoorLocation6 = Map.WorldToCell(new Vector3(2, 14, 0));
+            ExitDoorLocation6.z += 1;
+            Map.SetTile(ExitDoorLocation1, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation2, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation3, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation4, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation5, BossTile); // Close the Exit Door
+            Map.SetTile(ExitDoorLocation6, BossTile); // Close the Exit Door
         }
     }
 
@@ -112,13 +209,21 @@ public class ButtonPress : MonoBehaviour
         //Red Key Aquire
         if (Vector3.Distance(Map.WorldToCell(transform.position), Map.WorldToCell(RedKey)) <= 1)
         {
-            //Need Code to Check for Money
-            Vector3Int KeyLocation = Map.WorldToCell(RedKey);
-            KeyLocation.z += 1;
-            Map.SetTile(KeyLocation, null); // Take Key
-            if (!RedKeyAquired)
+            PlayerController controller = gameObject.GetComponent<PlayerController>();
+            if (controller.bal >= 3) //Check for Balance
             {
-                RedKeyAquired = true;
+                //Space to Confirm Purchase
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    Vector3Int KeyLocation = Map.WorldToCell(RedKey);
+                    KeyLocation.z += 1;
+                    Map.SetTile(KeyLocation, null); // Take Key
+                    if (!RedKeyAquired)
+                    {
+                        RedKeyAquired = true;
+                    }
+                    controller.ChangeBalance(-3);
+                }
             }
         }
     }
