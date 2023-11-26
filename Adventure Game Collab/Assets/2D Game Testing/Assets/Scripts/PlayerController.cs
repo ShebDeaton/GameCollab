@@ -8,6 +8,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3.0f;
+    public GameObject endScreen;
     public Vector2 position;
     public Vector2 SwordPosition;
     public float horizontalInput;
@@ -126,6 +127,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             sprite.color = Color.white;
+        }
+
+        if (currentHealth == 0)
+        {
+            talking = true;
+            endScreen.gameObject.SetActive(true);
+        }
+        else
+        {
+            endScreen.gameObject.SetActive(false);
         }
     }
 
