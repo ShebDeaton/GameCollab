@@ -11,6 +11,7 @@ public class ButtonPress : MonoBehaviour
     public Tile DoorOpen;
     public Tile BossTile;
     public Tilemap Map;
+    public GameObject BossHealthBar;
     private bool isRotated = false;
     private GameObject[] enemies;
     private GameObject[] Bosses;
@@ -78,6 +79,7 @@ public class ButtonPress : MonoBehaviour
         //Opens Exit Room
         if (Bosses.Length == 0) //kill the Boss
         {
+            BossHealthBar.SetActive(false);
             Vector3Int ExitDoorLocation1 = Map.WorldToCell(new Vector3(-1, 14, 0));
             ExitDoorLocation1.z += 1;
             Vector3Int ExitDoorLocation2 = Map.WorldToCell(new Vector3(0, 14, 0));
@@ -118,6 +120,7 @@ public class ButtonPress : MonoBehaviour
         }
         if (Bosses.Length == 1) // Boss is Alive.
         {
+            BossHealthBar.SetActive(true);
             Vector3Int BossDoorLocation1 = Map.WorldToCell(new Vector3(-1, 5, 0));
             BossDoorLocation1.z += 1;
             Vector3Int BossDoorLocation2 = Map.WorldToCell(new Vector3(0, 5, 0));

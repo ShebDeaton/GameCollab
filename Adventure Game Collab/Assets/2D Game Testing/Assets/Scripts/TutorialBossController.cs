@@ -14,7 +14,7 @@ public class TutorialBossController : MonoBehaviour
     public float speed = 3.0f;
     public int dir;
     private Vector2 Direction;
-    public int maxHealth = 9;
+    public int maxHealth = 5;
     int currentHealth;
     public float delay = 1.5f;
     bool isInvincible;
@@ -101,7 +101,7 @@ public class TutorialBossController : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+        BossHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
