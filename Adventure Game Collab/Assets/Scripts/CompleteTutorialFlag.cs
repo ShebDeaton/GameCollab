@@ -11,7 +11,7 @@ public class CompleteTutorialFlag : MonoBehaviour
         {
             MainManager.Instance.TutorialComplete = true;
             MainManager.Instance.level++;
-            MainManager.Instance.currentHealth += (MainManager.Instance.level * MainManager.Instance.difficulty);
+            MainManager.Instance.currentHealth += (MainManager.Instance.difficulty);
         }
     }
 }
