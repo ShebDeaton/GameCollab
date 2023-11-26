@@ -107,14 +107,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Return all Defaults
-            MainManager.Instance.ResetDefaults();
+            if (MainManager.Instance != null)
+                MainManager.Instance.ResetDefaults();
 
             SceneManager.LoadScene("UI Scene");
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             godMode = !godMode;
-            MainManager.Instance.godMode = godMode;
+            if (MainManager.Instance != null)
+                MainManager.Instance.godMode = godMode;
         }
 
         if (godMode)
@@ -157,11 +159,13 @@ public class PlayerController : MonoBehaviour
 
                 isInvincible = true;
                 invincibleTimer = timeInvincible;
-                MainManager.Instance.DamageTaken += amount;
+                if (MainManager.Instance != null)
+                    MainManager.Instance.DamageTaken -= amount;
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
-            MainManager.Instance.currentHealth = currentHealth;
+            if (MainManager.Instance != null)
+                MainManager.Instance.currentHealth = currentHealth;
 
         }
     }
@@ -185,6 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         currentBalance = currentBalance + amount;
         PlayerHealthBar.instance.SetBalance(currentBalance);
-        MainManager.Instance.money = currentBalance;
+        if(MainManager.Instance != null)
+            MainManager.Instance.money = currentBalance;
     }
 }

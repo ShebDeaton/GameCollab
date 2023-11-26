@@ -36,7 +36,8 @@ public class SwordSwing : MonoBehaviour
 
                     PlayerProjectile projectile = projectileObject.GetComponent<PlayerProjectile>();
                     projectile.Launch(controller.lookdir, 150.0f);
-                    MainManager.Instance.ProjectilesDeflected++;
+                    if (MainManager.Instance != null)
+                        MainManager.Instance.ProjectilesDeflected++;
                 }
             }
             
