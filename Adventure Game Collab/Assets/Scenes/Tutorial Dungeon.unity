@@ -605,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 505251503756737165, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 505251503756737165, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -655,6 +655,22 @@ PrefabInstance:
       propertyPath: swordPrefab
       value: 
       objectReference: {fileID: 783053448}
+    - target: {fileID: 5482833381056058996, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
+      propertyPath: healthBorder
+      value: 
+      objectReference: {fileID: 786844756}
+    - target: {fileID: 8250449484133591448, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250449484133591448, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250449484133591448, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1302,6 +1318,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &786844756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5472722008181824528, guid: 4c3d0f58fc48e2f43b46a66cadb1197b, type: 3}
+  m_PrefabInstance: {fileID: 7167631033171371989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &871083206
 PrefabInstance:
   m_ObjectHideFlags: 0

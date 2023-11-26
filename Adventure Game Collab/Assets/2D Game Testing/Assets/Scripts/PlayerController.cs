@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -36,13 +37,22 @@ public class PlayerController : MonoBehaviour
     public int bal { get { return currentBalance; } }
     int currentBalance;
 
+    SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        if (MainManager.Instance != null)
+        {
+            maxHealth = 10 + (MainManager.Instance.level * MainManager.Instance.difficulty);
+            currentHealth = MainManager.Instance.currentHealth;
+        }
+        //currentHealth = maxHealth;
         currentBalance = 0;
+        sprite = GetComponent<SpriteRenderer>();
+        PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     // Update is called once per frame
@@ -89,6 +99,15 @@ public class PlayerController : MonoBehaviour
         {
             godMode = !godMode;
         }
+
+        if (godMode)
+        {
+            sprite.color = Color.red; 
+        }
+        else
+        {
+            sprite.color = Color.white;
+        }
     }
 
     private void FixedUpdate()
@@ -124,6 +143,8 @@ public class PlayerController : MonoBehaviour
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+            MainManager.Instance.currentHealth = currentHealth;
+
         }
     }
 
