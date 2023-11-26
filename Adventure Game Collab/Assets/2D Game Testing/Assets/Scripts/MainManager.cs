@@ -50,4 +50,21 @@ public class MainManager : MonoBehaviour
         DamageTaken = 0;
         ProjectilesDeflected = 0;
     }
+
+    public void ResetDefaults()
+    {
+        currentHealth = 13;
+        level = 1;
+        money = 0;
+        godMode = false;
+        difficulty = 3;
+
+        TutorialComplete = false;
+        CaveComplete = false;
+        ForestComplete = false;
+
+        EnemiesKilled = 0;
+        DamageTaken = 0;
+        ProjectilesDeflected = 0;
+    }
 }

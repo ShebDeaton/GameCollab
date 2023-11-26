@@ -56,6 +56,7 @@ public class PebbleController : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(Money, rb.position, Quaternion.identity);
+            MainManager.Instance.EnemiesKilled++;
         }
     }
 

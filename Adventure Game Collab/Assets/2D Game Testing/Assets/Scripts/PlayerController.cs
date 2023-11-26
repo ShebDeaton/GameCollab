@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool speedGrade {  get {  return speedUpgrade; } }
 
     public int maxHealth = 5;
-    int currentHealth;
+    public int currentHealth;
     public float timeInvincible = 2.0f;
     public int health { get { return currentHealth; } }
     bool isInvincible;
@@ -42,17 +43,29 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Getting some Components
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        //If we're playing the full game, get some data.
         if (MainManager.Instance != null)
         {
+            //Calculate the MaxHp, based on Difficulty + Level.
             maxHealth = 10 + (MainManager.Instance.level * MainManager.Instance.difficulty);
+            //Track the Current Health
             currentHealth = MainManager.Instance.currentHealth;
+            //Track the Current Balance.
+            currentBalance = MainManager.Instance.money;
+            //Display the money.
+            PlayerHealthBar.instance.SetBalance(currentBalance);
+            //Track if the player is in God Mode.
+            godMode = MainManager.Instance.godMode;
         }
-        //currentHealth = maxHealth;
-        currentBalance = 0;
-        sprite = GetComponent<SpriteRenderer>();
-        PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        else
+        {
+            currentHealth = maxHealth;
+            currentBalance = 0;
+        }  
     }
 
     // Update is called once per frame
@@ -93,11 +106,15 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //Return all Defaults
+            MainManager.Instance.ResetDefaults();
+
             SceneManager.LoadScene("UI Scene");
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
             godMode = !godMode;
+            MainManager.Instance.godMode = godMode;
         }
 
         if (godMode)
@@ -140,6 +157,7 @@ public class PlayerController : MonoBehaviour
 
                 isInvincible = true;
                 invincibleTimer = timeInvincible;
+                MainManager.Instance.DamageTaken += amount;
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
@@ -167,5 +185,6 @@ public class PlayerController : MonoBehaviour
     {
         currentBalance = currentBalance + amount;
         PlayerHealthBar.instance.SetBalance(currentBalance);
+        MainManager.Instance.money = currentBalance;
     }
 }

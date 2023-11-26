@@ -53,6 +53,7 @@ public class TutorialBossController : MonoBehaviour
         if (currentHealth == 0)
         {
             gameObject.SetActive(false);
+            MainManager.Instance.EnemiesKilled++;
         }
     }
 
