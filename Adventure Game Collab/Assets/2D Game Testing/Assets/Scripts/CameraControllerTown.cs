@@ -38,7 +38,7 @@ public class CameraControllerTown : MonoBehaviour
                 Camera.main.transform.Translate(-18, 0, 0);
                 room = 3;
             }
-            if (playerPosition.x > 8.5) // Enter Jungle Enterance
+            if (playerPosition.x > 9.5) // Enter Jungle Enterance
             {
                 Camera.main.transform.Translate(18, 0, 0);
                 room = 5;

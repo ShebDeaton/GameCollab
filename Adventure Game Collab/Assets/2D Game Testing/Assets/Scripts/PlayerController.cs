@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     Vector2 lookDirection = new Vector2(0, -1);
+    public bool godMode;
     public Vector2 lookdir { get { return lookDirection; } }
     Vector2 move;
     public GameObject swordPrefab;
@@ -79,6 +81,14 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("UI Scene");
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            godMode = !godMode;
+        }
     }
 
     private void FixedUpdate()
@@ -102,16 +112,19 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        if(amount < 0)
+        if (!godMode)
         {
-            if (isInvincible)
-                return;
+            if (amount < 0)
+            {
+                if (isInvincible)
+                    return;
 
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
+                isInvincible = true;
+                invincibleTimer = timeInvincible;
+            }
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
         }
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
     }
 
     public void isTalking(bool talk)
@@ -132,6 +145,6 @@ public class PlayerController : MonoBehaviour
     public void ChangeBalance(int amount)
     {
         currentBalance = currentBalance + amount;
-        Debug.Log("Current Balance: " + currentBalance);
+        PlayerHealthBar.instance.SetBalance(currentBalance);
     }
 }
