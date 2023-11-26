@@ -36,11 +36,11 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //Starting Defaults
-        currentHealth = 13;
         level = 1;
         money = 0;
         godMode = false;
         difficulty = 3;
+        currentHealth = 10 + level * difficulty;
 
         TutorialComplete = false;
         CaveComplete = false;
@@ -53,11 +53,12 @@ public class MainManager : MonoBehaviour
 
     public void ResetDefaults()
     {
-        currentHealth = 13;
+        
         level = 1;
         money = 0;
         godMode = false;
         difficulty = 3;
+        currentHealth = 10 + level * difficulty;
 
         TutorialComplete = false;
         CaveComplete = false;

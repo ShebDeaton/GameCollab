@@ -15,7 +15,8 @@ public class PlayerHealthBar : MonoBehaviour
     void Start()
     {
         originalSize = mask.rectTransform.rect.width;
-        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * (MainManager.Instance.currentHealth / (float)(10 + (MainManager.Instance.level * MainManager.Instance.difficulty))));
+        if (MainManager.Instance != null)
+            mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * (MainManager.Instance.currentHealth / (float)(10 + (MainManager.Instance.level * MainManager.Instance.difficulty))));
     }
 
     private void Awake()
