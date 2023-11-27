@@ -141,12 +141,12 @@ public class PlayerController : MonoBehaviour
 
         if (MainManager.Instance != null)
         {
-            if (MainManager.Instance.CaveComplete)
+            if (MainManager.Instance.level == 3)
             {
                 reflectUpgrade = true;
             }
 
-            if (MainManager.Instance.ForestComplete)
+            if (MainManager.Instance.level == 4)
             {
                 speedUpgrade = true;
             }
