@@ -7,6 +7,7 @@ public class PebbleControllerforSprite : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public GameObject Money;
+    public GameObject HealthCollectible;
     Rigidbody2D rb;
     public int dir;
     private Vector2 Direction1;
@@ -31,6 +32,7 @@ public class PebbleControllerforSprite : MonoBehaviour
         Direction2 = Vector2.right;
         
         Direction3 = Vector2.down;
+
         StartCoroutine(ShootProjectile());
     }
 
@@ -49,6 +51,7 @@ public class PebbleControllerforSprite : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(Money, rb.position, Quaternion.identity);
+            Instantiate(HealthCollectible, rb.position, Quaternion.identity);
         }
     }
 
