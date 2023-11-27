@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5336722377787654759}
   - component: {fileID: 1393726031514995903}
   - component: {fileID: -2769516140610395206}
-  - component: {fileID: -5147261253884691718}
   - component: {fileID: -6104030250322914373}
+  - component: {fileID: -5147261253884691718}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -182,6 +182,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6104030250322914373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502836977101134198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb13836c4469e645a08a220355181dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
+  coinSource: {fileID: -5147261253884691718}
+  coinSound: {fileID: 8300000, guid: 1929e56e514e841bdbebe79dcc4aa2e5, type: 3}
 --- !u!82 &-5147261253884691718
 AudioSource:
   m_ObjectHideFlags: 0
@@ -193,14 +208,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1929e56e514e841bdbebe79dcc4aa2e5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 85
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -278,17 +293,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6104030250322914373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2502836977101134198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb13836c4469e645a08a220355181dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
-  audioClip: {fileID: 8300000, guid: 1929e56e514e841bdbebe79dcc4aa2e5, type: 3}
