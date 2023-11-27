@@ -25,6 +25,10 @@ public class NextScene : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(SceneName);
+            if(MainManager.Instance != null)
+            {
+                MainManager.Instance.level++;
+            }
         }
     }
 

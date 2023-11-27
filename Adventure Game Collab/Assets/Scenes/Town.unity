@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 5482833381056058996, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
       propertyPath: swordPrefab
       value: 
-      objectReference: {fileID: 7277153302080023396, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
+      objectReference: {fileID: 1657797159}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -418,6 +418,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4637639485802437507, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 253022699}
+    - targetCorrespondingSourceObject: {fileID: 4637639485802437507, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 253022700}
   m_SourcePrefab: {fileID: 100100000, guid: a028323b0be42dc42be8bbae7e1cbdfa, type: 3}
 --- !u!1 &253022698 stripped
 GameObject:
@@ -438,7 +441,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Map: {fileID: 2006926827}
   DoorOpen: {fileID: 11400000, guid: ab7bc2e3e2c3c094e928dab5e53bfb5f, type: 2}
+  Fence: {fileID: 11400000, guid: 060a9a05a883b4345abded4c3bfd21d1, type: 2}
   isRotated: 0
+--- !u!114 &253022700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253022698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3246ac4eb5b946a47be1159af5f1acad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &263366008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,6 +579,10 @@ PrefabInstance:
     - target: {fileID: 7277153302080023396, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
       propertyPath: m_Name
       value: sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277153302080023396, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -823,6 +843,8 @@ MonoBehaviour:
   TextbarBox: {fileID: 1831881031}
   dialogueText: {fileID: 1859182799}
   dialogues:
+  - Test
+  - Test
   - Test
 --- !u!1001 &1315350724
 PrefabInstance:
@@ -1174,6 +1196,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1657797159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7277153302080023396, guid: 2f2cc25327f2ea14390489a67e993242, type: 3}
+  m_PrefabInstance: {fileID: 355370152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1822978574
 GameObject:
   m_ObjectHideFlags: 0

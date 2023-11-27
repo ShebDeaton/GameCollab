@@ -7,6 +7,7 @@ public class TownProgressionFences : MonoBehaviour
 {
     public Tilemap Map;
     public Tile DoorOpen;
+    public Tile Fence;
     public bool isRotated;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,15 @@ public class TownProgressionFences : MonoBehaviour
                 Map.SetTile(CaveFence1, null); // Open the Cave Fence 
                 Map.SetTile(CaveFence2, null); // Open the Cave Fence
             }
-
+            if (MainManager.Instance.level<=3) 
+            {
+                Vector3Int CaveFence1 = Map.WorldToCell(new Vector3(-1, 23, 0));
+                CaveFence1.z += 1;
+                Vector3Int CaveFence2 = Map.WorldToCell(new Vector3(0, 23, 0));
+                CaveFence2.z += 1;
+                Map.SetTile(CaveFence1, Fence); // Close the Cave Fence 
+                Map.SetTile(CaveFence2, Fence); // Close the Cave Fence
+            }
             if (MainManager.Instance.CaveComplete)
             {
                 Vector3Int ForestFence1 = Map.WorldToCell(new Vector3(25, 10, 0));
@@ -38,7 +47,15 @@ public class TownProgressionFences : MonoBehaviour
                 Map.SetTile(ForestFence1, null); // Open the Forest Fence 
                 Map.SetTile(ForestFence2, null); // Open the Forest Fence
             }
-
+            if (MainManager.Instance.level == 4)
+            {
+                Vector3Int ForestFence1 = Map.WorldToCell(new Vector3(25, 10, 0));
+                ForestFence1.z += 1;
+                Vector3Int ForestFence2 = Map.WorldToCell(new Vector3(25, 9, 0));
+                ForestFence2.z += 1;
+                Map.SetTile(ForestFence1, Fence); // Close the Forest Fence 
+                Map.SetTile(ForestFence2, Fence); // Close the Forest Fence
+            }
             if (MainManager.Instance.ForestComplete)
             {
                 Vector3Int FinalDoor = Map.WorldToCell(new Vector3(-27, 6, 0));
