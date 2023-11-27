@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
             sprite.color = Color.white;
         }
 
-        if (currentHealth == 0)
+        if (MainManager.Instance.currentHealth == 0)
         {
             talking = true;
             endScreen.gameObject.SetActive(true);

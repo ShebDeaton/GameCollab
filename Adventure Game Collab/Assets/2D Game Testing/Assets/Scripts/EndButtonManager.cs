@@ -8,6 +8,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 public class EndButtonManager : MonoBehaviour
 {
     public TextMeshProUGUI Stats;
+    public bool credits = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class EndButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MainManager.Instance != null)
+        if (MainManager.Instance != null && !credits)
         {
             Stats.text = "Enemies Killed: " + MainManager.Instance.EnemiesKilled + "\n" +
                      "Damage Taken: " + MainManager.Instance.DamageTaken + "\n" +
@@ -46,7 +47,8 @@ public class EndButtonManager : MonoBehaviour
 
     public void loadCredits()
     {
-        Stats.text = "Sheb Deaton :Player Mechanics + Coin Sprite \n" +
+        credits = true;
+        Stats.text = "Sheb Deaton: Player Mechanics + Coin Sprite \n" +
                      "Landon Arnold: UI + Forest Boss Sprite\n" +
                      "Logan Mancilla: Enemy Mechanics + Medkit Sprite\n" +
                      "Cameron Boddie: Level Design + Axe Sprite\n" +

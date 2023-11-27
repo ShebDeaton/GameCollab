@@ -8,7 +8,10 @@ public class TownProgressionFences : MonoBehaviour
     public Tilemap Map;
     public Tile DoorOpen;
     public Tile Fence;
+    public Tile wall;
     public bool isRotated;
+    private GameObject[] FinalBosses;
+    private GameObject[] FinalBossMinions;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,5 +76,16 @@ public class TownProgressionFences : MonoBehaviour
                 Map.SetTile(FinalDoorFence, null); // Open the Final Fence
             }
         }
+        FinalBosses = GameObject.FindGameObjectsWithTag("Final Boss");
+        if (FinalBosses.Length == 1) // Final Boss has been spawned and is alive
+        {
+            Vector3Int FinalBossIndoorDoor = Map.WorldToCell(new Vector3(-28, 6, 0));
+            Map.SetTile(FinalBossIndoorDoor, wall); // Cosmetic block
+            Vector3Int FinalBossIndoorDoorFence = Map.WorldToCell(new Vector3(-28, 6, 0));
+            FinalBossIndoorDoorFence.z -= 1;
+            Map.SetTile(FinalBossIndoorDoorFence, Fence); // Block the exit 
+        }
+
+
     }
 }
