@@ -110,7 +110,8 @@ public class GameManagerX : MonoBehaviour
                      "Cameron Boddie: Level Design + Axe Sprite\n" +
                      "Top Down Adventure Assets: Tiles+Npcs+Player\n" +
                      "Enemy Galore 1 - Pixel Art: Enemies+Animation\n" +
-                     "xxx: Music"; ;
+                     "Adventure Music and SFX: Background Music\n" +
+                     "Blades & Bludgeoning Free Sample Pack: Collision Sounds";
         }
        
     }
