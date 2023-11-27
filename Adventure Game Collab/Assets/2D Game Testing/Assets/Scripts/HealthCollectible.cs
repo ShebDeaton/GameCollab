@@ -18,9 +18,9 @@ public class HealthCollectible : MonoBehaviour
         
         if (player != null)
         {
-            healthSource.Play();
             if (player.health < player.maxHealth)
             {
+                healthSource.Play();
                 player.ChangeHealth(value);
                 Destroy(gameObject);
             }
