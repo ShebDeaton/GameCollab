@@ -62,7 +62,7 @@ public class CameraControllerTown : MonoBehaviour
                 Camera.main.transform.Translate(18, 0, 0);
                 room = 2;
             }
-            if (playerPosition.x < -26.5 & playerPosition.y < 6.5) // Enter Main Room
+            if (playerPosition.x < -28 & playerPosition.y < 6.5) // Enter Boss Room
             {
                 Camera.main.transform.Translate(-18, 0, 0);
                 room = 6;
@@ -88,7 +88,7 @@ public class CameraControllerTown : MonoBehaviour
 
         else if (room == 6) // Final Boss Room
         {
-            if (playerPosition.x > -26.5 & playerPosition.y < 6.5) // Enter Main Room
+            if (playerPosition.x > -28 & playerPosition.y < 6.5) // Enter Main Room
             {
                 Camera.main.transform.Translate(18, 0, 0);
                 room = 3;
