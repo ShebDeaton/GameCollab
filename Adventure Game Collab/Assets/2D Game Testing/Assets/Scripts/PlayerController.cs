@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
             if (MainManager.Instance.level == 4)
             {
                 speedUpgrade = true;
+                reflectUpgrade = true;
             }
         }
     }

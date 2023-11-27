@@ -11491,20 +11491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3c861e22f9c24469647af0f5077b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitDoor: {fileID: 0}
-  BossDoor: {fileID: 0}
---- !u!114 &403521198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403521192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab838d9b86bd1c449a91268048478fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   exitDoor: {fileID: 1323624837}
   BossDoor: {fileID: 363048725}
 --- !u!4 &416747547 stripped
@@ -11698,67 +11684,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494ec15e6b787d94981c2808a8b9427a, type: 3}
---- !u!1001 &490817304
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.785417
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.2495966
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.006167166
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190112734851260436, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3363137228901571228, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: Boss
-      value: 
-      objectReference: {fileID: 6720716001003620815, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
-    - target: {fileID: 6632018089290198248, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
-      propertyPath: m_Name
-      value: BossSpawner
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 918c2e3e5542cda43ba2d2e9f5d20188, type: 3}
 --- !u!4 &506976751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3542758179778515219, guid: 494ec15e6b787d94981c2808a8b9427a, type: 3}
@@ -14062,7 +13987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1619331899379565162, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
       propertyPath: pathTime
-      value: 2.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2083581306630564125, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
       propertyPath: m_LocalScale.x
@@ -14078,7 +14003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2083581306630564125, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.88
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 2083581306630564125, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14119,6 +14044,10 @@ PrefabInstance:
     - target: {fileID: 6720716001003620815, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
       propertyPath: m_Name
       value: Pebble Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720716001003620815, guid: a37a65abbb0f41147a55f0b609d7c379, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16080,9 +16009,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4249244050375636844, guid: 88ec731acf9b61b45a6f95ff878a9795, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 403521198}
     - targetCorrespondingSourceObject: {fileID: 4249244050375636844, guid: 88ec731acf9b61b45a6f95ff878a9795, type: 3}
       insertIndex: -1
       addedObject: {fileID: 403521197}
@@ -18345,7 +18271,6 @@ SceneRoots:
   - {fileID: 2080852926}
   - {fileID: 370605714}
   - {fileID: 764808504}
-  - {fileID: 490817304}
   - {fileID: 1052290760}
   - {fileID: 515300063}
   - {fileID: 54092776}

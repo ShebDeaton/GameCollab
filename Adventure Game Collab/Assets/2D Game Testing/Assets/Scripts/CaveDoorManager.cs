@@ -20,7 +20,7 @@ public class CaveDoorManager : MonoBehaviour
     void Update()
     {
         Bosses = GameObject.FindGameObjectsWithTag("Boss");
-        if (Bosses.Length == 0 && !opened) // Boss is Alive.
+        if ((Bosses.Length == 0 && !opened)) // Boss is Alive.
         {
             Destroy(exitDoor);
             opened = true;
@@ -32,4 +32,5 @@ public class CaveDoorManager : MonoBehaviour
             opened2 = true;
         }
     }
+
 }
