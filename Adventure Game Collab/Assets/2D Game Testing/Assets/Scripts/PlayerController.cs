@@ -177,25 +177,27 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        if (!godMode)
+
+        if (amount < 0)
         {
-            if (amount < 0)
-            {
-                if (isInvincible)
-                    return;
+            if (isInvincible)
+                return;
 
-                isInvincible = true;
-                invincibleTimer = timeInvincible;
-                if (MainManager.Instance != null)
-                    MainManager.Instance.DamageTaken -= amount;
-            }
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
             if (MainManager.Instance != null)
-                MainManager.Instance.currentHealth = currentHealth;
+                MainManager.Instance.DamageTaken -= amount;
             damageSource.Play();
-
         }
+        if (godMode && amount < 0)
+        {
+            amount = 0;
+        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        if (MainManager.Instance != null)
+            MainManager.Instance.currentHealth = currentHealth;
+
     }
 
     public void isTalking(bool talk)

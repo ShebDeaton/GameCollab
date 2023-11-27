@@ -18,12 +18,18 @@ public class HealthCollectible : MonoBehaviour
         
         if (player != null)
         {
+            
             if (player.health < player.maxHealth)
             {
                 healthSource.Play();
                 player.ChangeHealth(value);
-                Destroy(gameObject);
+                StartCoroutine(Destroy());
             }
         }
+    }
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(0.7f);
+        Destroy(gameObject);
     }
 }

@@ -103,7 +103,8 @@ public class TutorialBossController : MonoBehaviour
             invincibleTimer = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        BossHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        if (BossHealthBar.instance != null)
+            BossHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
