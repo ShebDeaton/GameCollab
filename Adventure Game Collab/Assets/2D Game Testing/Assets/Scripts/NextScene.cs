@@ -27,7 +27,10 @@ public class NextScene : MonoBehaviour
             SceneManager.LoadScene(SceneName);
             if(MainManager.Instance != null)
             {
-                MainManager.Instance.level++;
+                if (SceneName.Equals("Town"))
+                {
+                    MainManager.Instance.level++;
+                }
             }
         }
     }

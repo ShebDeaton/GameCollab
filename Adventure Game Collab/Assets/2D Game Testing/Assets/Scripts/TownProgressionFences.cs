@@ -29,7 +29,7 @@ public class TownProgressionFences : MonoBehaviour
                 Map.SetTile(CaveFence1, null); // Open the Cave Fence 
                 Map.SetTile(CaveFence2, null); // Open the Cave Fence
             }
-            if (MainManager.Instance.level<=3) 
+            if (MainManager.Instance.level == 3 || MainManager.Instance.level == 4) 
             {
                 Vector3Int CaveFence1 = Map.WorldToCell(new Vector3(-1, 23, 0));
                 CaveFence1.z += 1;
