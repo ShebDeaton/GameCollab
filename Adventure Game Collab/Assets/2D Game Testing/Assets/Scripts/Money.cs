@@ -6,6 +6,7 @@ public class Money : MonoBehaviour
 {
     public int value = 5;
     Rigidbody2D rb;
+    public AudioClip audioClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Money : MonoBehaviour
             PlayerController controller = collision.gameObject.GetComponent<PlayerController>();
             if (controller != null)
                 controller.ChangeBalance(value);
+            GetComponent<AudioSource>().Play();
         }
     }
 
