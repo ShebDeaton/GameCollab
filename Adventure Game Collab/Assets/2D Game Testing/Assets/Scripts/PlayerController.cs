@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
 
+    public AudioSource damageSource;
+
     public int bal { get { return currentBalance; } }
     int currentBalance;
 
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         //Getting some Components
         rb = GetComponent<Rigidbody2D>();
+        damageSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         //If we're playing the full game, get some data.
@@ -190,6 +193,7 @@ public class PlayerController : MonoBehaviour
             PlayerHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
             if (MainManager.Instance != null)
                 MainManager.Instance.currentHealth = currentHealth;
+            damageSource.Play();
 
         }
     }

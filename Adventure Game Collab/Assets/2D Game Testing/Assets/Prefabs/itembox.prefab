@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  healthSource: {fileID: -6200395049595726364}
 --- !u!82 &-6200395049595726364
 AudioSource:
   m_ObjectHideFlags: 0
