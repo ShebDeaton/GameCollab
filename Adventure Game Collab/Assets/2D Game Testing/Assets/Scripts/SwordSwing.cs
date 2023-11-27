@@ -65,6 +65,11 @@ public class SwordSwing : MonoBehaviour
             {
                 controller4.ChangeHealth(-1);
             }
+            PebbleControllerforSprite controller5 = collision.gameObject.GetComponent<PebbleControllerforSprite>();
+            if (controller5 != null)
+            {
+                controller5.ChangeHealth(-1);
+            }
         }
     }
 }
