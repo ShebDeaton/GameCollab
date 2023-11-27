@@ -14,7 +14,7 @@ public class PebbleControllerforSprite : MonoBehaviour
     private Vector2 Direction3;
     public int maxHealth = 10;
     int currentHealth;
-    public float delay = 3.0f;
+    public float delay = 0.25f;
     bool isInvincible;
     float invincibleTimer;
     public float timeInvincible = 0.25f;
@@ -24,14 +24,14 @@ public class PebbleControllerforSprite : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        StartCoroutine(ShootProjectile());
+        
        
         Direction1 = Vector2.left;
         
         Direction2 = Vector2.right;
         
         Direction3 = Vector2.down;
-        
+        StartCoroutine(ShootProjectile());
     }
 
     void Update()
@@ -64,7 +64,7 @@ public class PebbleControllerforSprite : MonoBehaviour
     }
     void Launch(Vector2 Direction)
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Direction * 0.5f, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Direction * 2.0f, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(Direction, 150.0f);
