@@ -6,6 +6,12 @@ public class HealthCollectible : MonoBehaviour
 {
 
     public int value = 1;
+    public AudioSource healthSource;
+
+    private void Start()
+    {
+        healthSource = GetComponent<AudioSource>();
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
@@ -14,6 +20,7 @@ public class HealthCollectible : MonoBehaviour
         {
             if (player.health < player.maxHealth)
             {
+                healthSource.Play();
                 player.ChangeHealth(value);
                 Destroy(gameObject);
             }

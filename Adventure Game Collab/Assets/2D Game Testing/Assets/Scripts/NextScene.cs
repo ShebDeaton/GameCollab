@@ -30,7 +30,7 @@ public class NextScene : MonoBehaviour
                 if (SceneName.Equals("Town"))
                 {
                     MainManager.Instance.level++;
-                    MainManager.Instance.currentHealth += MainManager.Instance.level * MainManager.Instance.difficulty;
+                    MainManager.Instance.currentHealth += MainManager.Instance.difficulty;
                 }
             }
         }

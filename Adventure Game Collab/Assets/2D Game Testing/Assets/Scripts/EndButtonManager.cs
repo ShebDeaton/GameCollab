@@ -51,9 +51,10 @@ public class EndButtonManager : MonoBehaviour
         Stats.text = "Sheb Deaton: Player Mechanics + Coin Sprite \n" +
                      "Landon Arnold: UI + Forest Boss Sprite\n" +
                      "Logan Mancilla: Enemy Mechanics + Medkit Sprite\n" +
-                     "Cameron Boddie: Level Design + Axe Sprite\n" +
+                     "Cameron Boddie: Level Design + Healthbar\n" +
                      "Top Down Adventure Assets: Tiles+Npcs+Player\n" +
                      "Enemy Galore 1 - Pixel Art: Enemies+Animation\n" +
-                     "xxx: Music";
+                     "Adventure Music and SFX: Background Music\n"+
+                     "Blades & Bludgeoning Free Sample Pack: Collision Sounds";
     }
 }
